@@ -1,0 +1,94 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.cambio-niveles{
+
+    .filtro-niveles{
+        .formulario{
+            .contenedor-campos{
+                @include m.grid(1, 1rem);
+                @include m.tablet{
+                    @include m.grid(3, 1rem);
+                }
+            }
+            input{
+                margin: 0;
+                //align-self: flex-start;
+            }
+        }
+    }
+
+    .contenedor-estudiantes{
+        .datos-grupo{
+            display: flex;
+            justify-content: start;
+            .texto-programa-nivel{
+                text-align: center;
+                flex: 1;
+                color: v.$grisoscuro;
+                span{
+                    color: v.$azul3;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .tabla{
+            thead{
+                i{
+                    font-size: 2.2rem;
+                    color: v.$azul2;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            tbody{
+                input{
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+                .sede{
+                    color: darken(v.$secundario, 0);
+                }
+                .acciones-cn{
+                    a{
+                        color: darken(v.$grisoscuro, 0);
+                        &:hover{
+                            cursor: pointer;
+                            color: darken(v.$grisoscuro2, 0);
+                        }
+                    }
+                }
+            }
+        }
+        .aplicar-cn{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid v.$gris;
+            padding: 1rem;
+            @include m.telefono{
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .update-nivel{
+                font-size: 2.2rem;
+                color: v.$gris2;
+                margin-left: 1rem;
+                &:hover{
+                    cursor: pointer;
+                    color: darken(v.$gris2, 20);
+                }
+            }
+            input[type="submit"]{
+                display: none;
+            }
+            
+            
+        }
+    }
+
+}

@@ -1,0 +1,199 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.ver{
+    //////////////////***div que se abre y se cierra efecto acordion***///////////////
+    .contenedor-barra{
+        .barra-nuevo-registro{
+            display: flex;  
+            i{
+                color: v.$blanco;
+                background-color: v.$azuloscuro;
+                padding: .5rem .8rem;
+                display: flex;
+                align-items: center;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            h4{
+                flex: 1;
+                color: v.$blanco;
+                background-color: v.$azuloscuro;
+                padding: .5rem .8rem;
+                text-align: center;
+            }
+        }
+        
+    }/////////////////****************/////////////////////
+    .contenedor-ver{
+        border: 1px solid v.$gris2;
+        padding: 1rem;
+
+        .filtro-datos{
+            .filtro-programa{
+                .nombre-programa{
+                    margin-top: 1rem;
+                    text-align: center;
+                    label{
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            .datos{
+                margin-top: 1rem;
+                @include m.telefono{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .basicos{
+                    padding-top: 1rem;
+                    .numreg{
+                        color: v.$azuloscuro;
+                        margin-bottom: 1rem;
+                        font-weight: 600;
+                    }
+                    .basico{
+                        padding: 1rem;
+                        border: 1px solid v.$gris;
+                        color: v.$negro;
+                        font-weight: 700;
+                        margin-bottom: 1rem;
+                        span{
+                            color: v.$grisoscuro2;
+                            font-weight: 300;
+                            //font-size: 1.5rem;
+                        }
+                    }
+                }
+                .estado-estudiante{
+                    border: 1px solid v.$gris;
+                    padding: 1rem;
+                    .formulario{
+                        p{
+                            background-color: v.$grisclaro;
+                            padding-left: 1rem;
+                            padding-top: 1rem;
+                            font-weight: 400;
+                            font-size: 2rem;
+                            color: v.$azuloscuro;
+                        }
+                        .acciones-estudiantes{
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 0rem 1rem;
+                            border: 1px solid v.$grisclaro;
+                            background-color: v.$grisclaro;
+                            input[type=checkbox]{
+                                margin-right: 1rem;
+                                width: 1.8rem;
+                                height: 1.8rem;
+                            }
+                        }
+                        .contenedor-campos{
+                            @include m.desktop{
+                                @include m.grid(2, 1rem);
+                                row-gap: 0rem;
+                            } 
+                            .formulario-numreg{
+                                text-align: center;
+                                color: v.$grisoscuro2;
+                            }
+                        }
+                    }
+                } //fin estado-estudiante
+            }//fin datos
+        } // filtro-datos
+    
+        .form-nuevo-programa{
+            height: 0rem;
+            overflow: hidden;
+            border: 1px solid v.$gris;
+            .formulario{
+                padding: 1rem;
+            }
+            &.activar-desplegardiv{ //clase agregada con js
+                height: auto;
+            }
+            .contenedor-campos{
+                @include m.desktop{
+                    @include m.grid(2, 3rem);
+                    row-gap: 0rem;
+                }  
+            }
+        }    
+    } //fin contenedor ver
+
+    //pagos
+    .contenedor-pagos{
+        margin-top: 1rem;
+        border: 1px solid v.$gris2;
+        padding: 1rem;
+        .pagos{
+            height: 0rem;
+            overflow: hidden;
+            border: 1px solid v.$gris;
+            .historial-pagos{
+                .texto-historial-pagos{
+                    padding: 1rem;
+                    font-weight: 600;
+                }
+                .tabla{
+                    .acciones-registro{
+                        align-items: center;
+                        justify-content: space-around;
+                        .formulario{
+                            padding: 0;
+                            border-top: none;
+                            label{
+                                i{
+                                    color: v.$rosa;
+                                }
+                                &:hover{
+                                    cursor: pointer;
+                                }
+                            }
+                            input[type=submit]{
+                                display: none;
+                            }
+                        }
+                        .printpago{
+                            a{
+                                color: v.$azul4;
+                            }
+                        }
+                    }
+                }
+            }
+            .formulario{
+                border-top: 1px solid darken(v.$grisoscuro, 0);
+                padding: 1rem;
+                .texto-registrar-pagos{
+                    color: v.$rosa;
+                    font-weight: 500;
+                    font-size: 1.6rem
+                }
+                .contenedor-campos{
+                    @include m.grid(1, 1rem);
+                    @include m.tablet{
+                        @include m.grid(2, 1rem);
+                    }
+                }
+                .btn-pago{
+                    display: flex;
+                    justify-content: center;
+                    input{
+                        align-self: center;
+                    }
+                }
+            }
+
+            &.activar-desplegardiv{ //clase agregada con js
+                height: auto;
+            }
+        }
+
+    }
+
+    
+}  //fin main

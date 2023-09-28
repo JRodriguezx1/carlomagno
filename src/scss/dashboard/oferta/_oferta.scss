@@ -1,0 +1,84 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.gestionar-oferta{
+    .cursos{
+        margin: 2.5rem 0 1rem 0;
+    }
+}
+
+.crear-oferta, .actualizar-oferta{  //clases de dashboard/gestionaroferta/crear.php y actualizar.php
+    .form-oferta{
+        border: 1px solid v.$grisoscuro;
+        padding: 2rem;
+        .estado{
+            margin: 0rem 0rem 1rem 0;
+            border: 1px solid v.$grisoscuro;
+            width: 20rem;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 1rem;
+            .publicar{
+                background-color: v.$gris2;
+                color: v.$blanco;
+                padding: 0 1rem;
+            }
+        }
+        .formulario-campo{
+            margin: .3rem 0;
+        }
+        .marcarerror{
+            border: 2px solid v.$rojo;
+            outline-color: v.$rosa;
+        }
+    }
+}
+
+.toferta{ //clase de dashboard/gestionarprogramas/inicio.php
+    width: 100%;
+    thead{
+        color: v.$blanco;
+        background-color: darken(v.$gris2, 10);
+        th{
+            padding: 1rem 0;
+        }
+    }
+
+    tbody{
+        td{
+            text-align: center;
+            border-bottom:  solid 1px darken(v.$gris-claro, 20);
+        }
+        .imagen-tabla{
+            width: 7rem;
+            @include m.telefono{
+                width: 12rem;
+            }
+        }
+        .formulario{
+            .btn{
+                margin-bottom: 0;
+                input{ @include m.boton(v.$rosa, v.$blanco);
+                    padding: 1rem .5rem;
+                    font-size: 1.4rem;
+                    @include m.desktop{
+                        width:75%;
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+        .btn{ 
+            a{
+                font-size: 1.4rem;
+                padding: 1rem .5rem;
+                width: 100%;
+                @include m.desktop{
+                    width:75%;
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+    
+}

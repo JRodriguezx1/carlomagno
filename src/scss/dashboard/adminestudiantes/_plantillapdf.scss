@@ -1,0 +1,152 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.plantillapdf{
+    width: 98%;
+    max-width: 120rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    .encabezado{ //table
+        width: 100%;
+        margin-bottom: 6rem;
+        .logo{
+            padding: 0;
+            border: 0;
+            width: 20%;
+            img{
+                width: 100%;
+            }
+        }
+        .infoempresa{
+            padding: 0;
+            text-align: center;
+            width: 56%;
+            h4{font-size: 1.6rem;}
+            p{font-size: 1.3rem; line-height: 1;}
+        }
+
+        .infofactura{
+            width: 24%;
+            .contenido-factura{
+                border: 1px solid darken(v.$azul3, 10);
+                border-radius: 1rem;
+                overflow: hidden;
+                h4{
+                    color: v.$blanco;
+                    background-color: darken(v.$azul3, 10);
+                    text-align: center;
+                    padding: 0.4rem;
+                    font-size: 1.8rem;
+                }
+                .datos-factura{
+                    padding: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    .estudiante-programa{  //table
+        width: 100%;
+        .estudiante{ //td
+            width: 49%;
+            vertical-align: top;
+            border: 1px solid darken(v.$azul3, 10);
+            padding: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+                h4{
+                    color: v.$blanco;
+                    background-color: darken(v.$azul3, 10);
+                    text-align: center;
+                    padding: 0.4rem;
+                    font-size: 1.8rem;
+                }        
+        }
+        .programa{ //td
+            @extend .estudiante;  
+        }
+        .info-texto{
+            padding: 1rem;
+            font-size: 1.5rem;
+            line-height: 1;
+        }    
+    }
+
+    .detalle{ //table
+        width: 100%;
+        margin-top: 1rem;
+        th{
+            text-align: left;
+            background-color: darken(v.$gris, 0);
+            color: v.$gris-oscuro;
+            padding: 0.4rem 1rem;
+            h4{
+                font-size: 1.6rem;
+            }
+        }
+        td{
+            p{padding: 1rem; font-size: 1.5rem;}
+        }
+    }
+
+    .contenedor-resumen{ //div
+        border: 1px solid darken(v.$azul3, 10);
+        margin-top: 1rem;
+        padding: 1rem;
+        .resumen{ //tabla
+            width: 100%;
+            border-collapse: collapse;
+            .QR{
+                width: 11%;
+                img{
+                    width: 13rem;
+                }
+            }
+            .flecha{
+                width: 4%;
+                i{
+                    font-size: 3.2rem;
+                }
+            }
+            .masinfo{
+                width: 61%;
+                p{ font-size: 1.5rem;}
+                .texto-masinfo{font-weight: 700; font-size: 1.6rem;}
+            }
+            .texto-cobro{
+                width: 12%;
+                padding: 0;
+                p{
+                    border: 1px solid darken(v.$azul3, 10);
+                    padding: 0 2rem .4rem .4rem;
+                    font-size: 1.6rem;
+                }
+            }
+            .cobro{
+                padding: 0;
+                width: 12%;
+                p{
+                    border: 1px solid darken(v.$azul3, 10);
+                    text-align: right;
+                    padding: 0 .4rem .4rem 2rem;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+        .resumen-texto{
+            margin-top: 3rem;
+            font-size: 1.3rem;
+            padding: 1rem;
+        }
+    }
+
+    .paginaweb{
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.4rem;
+        p{ font-weight: 700;}
+    }
+
+}

@@ -1,0 +1,70 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footerauth{
+    //background-color: rgb(55, 50, 51);  //rgb(241, 48, 87);
+    //flex: 1; //toma el resto de espacio
+    padding: 2rem;
+
+    .footer-contenido{
+        position: relative;
+        margin-top: 3rem;
+        @include m.tablet{
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+        }
+        
+        h3{
+            color: v.$negro;  //titulo: MenuDigital
+            text-align: center;
+        }
+        .rrss{
+            margin-top: 2rem;
+            .rrss-enlace{
+                &::before{
+                    color: v.$blanco;
+                    font-size: 2rem;
+                    display: inline-block; // para que se ponga el elemento al lado de otro se puede aplicar pading
+                    font-style: normal;
+                    text-rendering: auto; //propiedad que se aplica a vectores
+                    -webkit-font-smoothing: antialiased;
+                    font-family: "Font Awesome 6 brands";
+                }
+                &[href*="https://facebook.com"]::before{
+                    content: "\f39e";
+                }
+                &[href*="https://instagram.com"]::before{
+                    content: "\f16d";
+                }
+                &[href*="https://github.com"]::before{
+                    content: "\f09b";
+                }
+                &[href*="https://youtube.com"]::before{
+                    content: "\f167";
+                }
+            }
+            
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+
+           /* a{
+                color: v.$negro;
+                margin-right: 1rem;
+            }*/
+        }  
+    }
+    p{
+        text-align: center;
+        color: v.$negro;
+        margin-top: 5rem;
+        position: relative;
+        line-height: 1.5;
+        span{
+            color: v.$gris-oscuro;
+            border: 1px solid v.$gris-oscuro;
+            padding: .3rem 1rem;
+        }
+    }
+}

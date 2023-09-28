@@ -1,0 +1,218 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+//estilos generales del header /////
+.editar-index{
+    .campo{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        .campo-label{
+            width: 18rem;
+            background-color: v.$gris2;
+            color: v.$blanco;
+            text-align: center;
+        }
+        .campo-input{
+            width: 100%;
+            border: 1px solid darken(v.$gris-claro, 20);
+            outline-color: darken(v.$gris-claro, 10);
+        }
+        .tituos-imput{ //estilo a los imput de cambio de titulo en el post1
+            color: v.$azul4;
+            font-weight: 600;
+        }
+        textarea{
+            width: 100%;
+        }
+        .campo-contchart{
+            background-color: v.$grisclaro;
+            width: 4rem;
+            text-align: center;
+            color: v.$grisoscuro2;
+            font-size: 1.4rem;
+            border: 1px solid darken(v.$gris-claro, 20);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @media (max-width: 1023px){
+                align-self: flex-end;
+            }
+        }
+        .marcarerror{
+            border: 2px solid v.$rojo;
+            outline-color: v.$rosa;
+        }
+        @include m.desktop{
+            flex-direction: row;
+        }
+    }
+    .bloque-contenedor{
+        border: solid 1px v.$gris;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        h4{
+            color: v.$azuloscuro;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-end;
+           p{
+               color: v.$gris-oscuro;
+               font-size: 1.6rem;
+               font-weight: 400;
+               margin: 0 2rem;
+           }
+        }
+        .titulo-index{
+            color: v.$blanco;
+            display: flex;
+            justify-content: center;
+            background-color: v.$azuloscuro;
+            padding: 0.5rem 0rem;
+        }
+        .subtt-index{
+            color: v.$azuloscuro;
+            font-weight: 600;
+        }
+    }
+    .img-contenedor{
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        .cambiar-img{
+            width: 15rem;
+        }
+    }
+    .btnfile{
+        text-align: center;
+        margin: 1rem 0;
+    }
+}
+//estilos a los controles del slider del header /////
+.editar-slider-contenedor{
+    //padding: 1rem;
+    overflow: hidden;
+    .editar-slider{
+        overflow-x: scroll;
+        display: flex;
+        gap: 1rem;
+        .img-slider{
+            width: 15rem;
+        }
+    }
+}
+//estilos a los controles del eslogan del header /////
+.editar-eslogan{
+    //padding: 1rem;
+    .editar-eslogan-campos{
+        .campo-label--verde{
+            width: 18rem;
+            background-color: v.$verdeclaro;
+            color: v.$negro;
+            text-align: center;
+        }
+    }
+}
+//estilos a los controles del texto final del header /////
+.textoendheader{
+    //padding: 1rem;
+    .textoendheader-campos{
+        .campo-label--azul{
+            width: 18rem;
+            background-color: v.$azul;
+            color: v.$blanco;
+            text-align: center;
+        }
+    }
+}
+
+/////////////////////////////seccion1////////////////////////////////////
+.post{
+    //padding: 1rem;
+    overflow: hidden;
+}
+.distintivo{
+    overflow: hidden;
+}
+
+.beneficios{
+    .img-contenedor{
+        overflow-x: scroll;
+    }
+    .cambiar-img{
+        width: 12rem;
+        text-align: center;
+        &:nth-last-of-type(1){
+            .btnfile{
+                label{
+                    @include m.boton(v.$azuloscuro, v.$blanco);
+                }
+                input{
+                    display: none;
+                }
+            }
+        }
+        &:nth-last-of-type(2){
+            .btnfile{
+                label{
+                    @include m.boton(v.$verde, v.$blanco);
+                }
+                input{
+                    display: none;
+                }
+            }
+        }
+        &:nth-last-of-type(3){
+            .btnfile{
+                label{
+                    @include m.boton(v.$secundario, v.$blanco);
+                }
+                input{
+                    display: none;
+                }
+            }
+        }
+        &:nth-last-of-type(4){
+            .btnfile{
+                label{
+                    @include m.boton(v.$azul, v.$blanco);
+                }
+                input{
+                    display: none;
+                }
+            }
+        }
+        img{
+            width: 7rem;
+        }
+    }
+}
+
+.estadisticos{
+    .estadisticos-campos{
+        display: flex;
+        flex-direction: column;
+        @include m.desktop{
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .campo{
+            display: flex;
+            flex-direction: column;
+            label, input{ 
+                width: 90%;
+                margin: 0 auto;
+                @include m.desktop{
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}
+.guardar-index{
+    text-align: end;
+    input{
+        @include m.boton(v.$secundario, v.$blanco);
+        width: auto;
+    }
+}

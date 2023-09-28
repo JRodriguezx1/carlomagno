@@ -1,0 +1,54 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{
+    .heading-inicio{
+        margin-bottom: 2rem;
+        color: v.$gris-oscuro;
+    }
+    .inicio-contenedor{
+        display: flex;
+        flex-direction: column;
+        @include m.tablet{
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
+        }
+       .tabla-contenedor{
+           margin-bottom: 2rem;
+       }
+        .tinfop{
+            width: 100%;
+            max-width: 60rem;
+            border-collapse: collapse;
+            thead{
+                color: v.$blanco;
+                background-color: v.$gris2;
+                th{
+                    border:  solid 1px darken(v.$gris-claro, 20); 
+                    padding: 1rem;
+                }
+            }
+            tbody{
+                color: v.$grisoscuro2;
+                td{
+                    border: solid 1px darken(v.$gris-claro, 20);
+                    padding: 1rem;
+                    font-size: 1.6rem;
+                }
+                .descripcion{
+                    color: v.$azul4;
+                    font-weight: 700;
+                    font-size: 1.8rem;
+                }
+                .logo-tabla{
+                    text-align: center;
+                    img{
+                        width: 16rem;
+                    }
+                }
+            }
+        }
+        
+    }
+}

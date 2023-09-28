@@ -1,0 +1,150 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.admin-programas{
+    #programa-grupo{
+        width: 24rem;
+    }
+
+}
+
+/////crear programa y grupo inicial
+.crear-prog{
+    .form-registro{
+        @include m.contenedor-sm;
+        .niveles{
+            .campo-btn-nivel{
+                text-align: end;
+                .btn_nivel{
+                    color: v.$grisclaro;
+                    background-color: v.$azul2;
+                    padding: 0 1rem;
+                    font-size: 2.5rem;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: darken(v.$azul2, 10);
+                        color: v.$blanco;
+                    }
+                }
+            }
+        }
+    }
+    legend{
+        color: v.$secundario;
+        font-weight: 700;
+    }
+}
+
+///////actualizar programa y grupo
+.editar-prog{
+    .contenido-prog-grupo{
+        .formulario{  // editar programa y grupo
+            border: 1px solid v.$grisoscuro;
+            padding: 1rem;
+            @include m.tablet{
+                @include m.grid(2, 4rem);
+            }
+            .editar-grupo{
+                display: flex;
+                flex-direction: column;
+                .cambio-grupo{
+                    width: 1.8rem;
+                    height: 1.8rem;
+                    margin-right: 1rem;
+                }
+                .count_btn-elimgrupo{
+                    display: flex;
+                    justify-content: space-between;
+                    .estudiantesxgrupo{
+                        font-weight: 700;
+                        color: v.$azul2;
+                    }
+                    .btn-eliminargrupo{
+                        //text-align: end;
+                        display: none;
+                        a{  
+                            i{
+                                color: v.$color4;
+                                font-size: 2.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .nuevo-registro{  //crear nuevo grupo
+            margin-bottom: 1rem;
+            .barra-nuevo-registro{
+                background-color: v.$azuloscuro;
+                color: v.$blanco;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: .5rem .8rem;
+                i{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                h4{
+                    flex: 1;
+                    text-align: center;
+                }
+            }
+            .form-nuevo-grupo{
+                height: 0rem;
+                //&.activar-form-nuevo-programa{ **clase agregada con js
+                //    height: auto;
+                //}
+                overflow: hidden;
+                .formulario{
+                    display: block;
+                    .contenedor-niveles{
+                        .formulario-label{
+                            font-size: 1.8rem;
+                            font-weight: 600;
+                            margin-right: 1rem;
+                        }
+                        select{
+                            border: 1px solid darken(v.$gris-claro, 50);
+                        }
+                    }
+                    .contenedor-campos{
+                        @include m.desktop{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                        .formulario-submit--secundario{  
+                            align-self: auto; 
+                        }
+                    }
+                }
+            }
+            .activar-desplegardiv{  // **clase agregada con js
+                height: auto;
+            }
+        } //fin nuevo grupo
+
+        //////////nuevo nivel
+        .contenedor-form-niveles{
+            height: 0rem;
+            overflow: hidden;
+            @include m.grid(1, 2rem);
+            @include m.tablet{
+                @include m.grid(2, 2rem);
+            }
+            .formulario{
+               display: block;
+               p{
+                   text-align: center;
+                   margin-bottom: 1rem;
+               }
+            }
+            .activar-desplegardiv{  // **clase agregada con js
+                height: auto;
+            }
+        }
+    }  //contenido-prog-grupo
+}

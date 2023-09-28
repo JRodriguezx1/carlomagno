@@ -1,0 +1,139 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.btns{
+    display: flex;
+    gap: 2rem;
+}
+.contenedor-print{
+    margin-top: 1rem;
+    .encabezado{
+        @include m.tablet{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6rem;
+        }
+    }
+    .logo{
+        width: 14rem;
+    }
+    .marca{
+        text-align: center;
+    }
+    .tipo-documento{
+        border: 1px solid darken(v.$azul3, 10);
+        border-radius: 1rem;
+        overflow: hidden;
+        h4{
+            color: v.$blanco;
+            background-color: darken(v.$azul3, 10);
+            text-align: center;
+            padding: 0.4rem;
+        }
+        .info-factura{
+            padding: 1rem;
+        }
+    }
+
+    .estudiante-programa{
+        @include m.grid(1, 1rem);
+        @include m.tablet{
+            @include m.grid(2, 1rem);
+        }
+        .info-texto{
+            padding: 1rem;  
+        }
+        .estudiante{
+            @extend .tipo-documento;
+        }
+        .programa{
+            @extend .tipo-documento;
+        }       
+    }
+
+    .objeto{
+        margin-top: 1rem;
+        display: flex;
+        h4{
+            background-color: darken(v.$gris, 0);
+            color: v.$gris-oscuro;
+            padding: 0.4rem 1rem;
+        }
+        p{
+            padding: 1rem;
+        }
+        .item{
+            flex: 0 0 calc(16% - 1rem);
+        }
+        .descripcion{
+            flex: 1;
+        }
+        .valor-unitario{
+            flex: 0 0 calc(16% - 1rem);
+        }
+        .dcto{
+            flex: 0 0 calc(16% - 1rem);
+        }
+        .valor-total{
+            flex: 0 0 calc(16% - 1rem);
+        }    
+    }
+
+    .resumen{
+        border: 1px solid darken(v.$azul3, 10);
+        margin-top: 1rem;
+        padding: 1rem;
+        .QR-subtotal{
+            display: flex;
+            justify-content: space-between;
+            .QR{
+                display: flex;
+                align-items: center;
+                gap: 5rem;
+                img{
+                    width: 13rem;
+                }
+                .contenido-masinfo{
+                    position: relative;
+                    i{
+                        position: absolute;
+                        left: -19%;
+                        font-size: 3.2rem;
+                    }
+                    p{ font-size: 1.6rem;}
+                    .masinfo{font-weight: 700;}
+                }
+            }
+            .subtotal{
+                display: flex; 
+                .col1{    
+                    p{
+                        border: 1px solid darken(v.$azul3, 10);
+                        padding: 0 2rem .4rem 0;
+                    }
+                }
+                .col2{
+                    span{
+                        border: 1px solid darken(v.$azul3, 10);
+                        padding: 0 0rem .4rem 2rem;
+                        text-align: end;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                }  
+            }
+        }
+        .resumen-texto{
+            margin-top: 4rem;
+            font-size: 1.3rem;
+        }
+    }
+
+    .paginaweb{
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.4rem;
+        p{ font-weight: 700;}
+        span{}
+    }
+}

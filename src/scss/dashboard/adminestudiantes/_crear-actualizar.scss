@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.admin-crear-actualizar{
+    .form-registro{
+        border: 1px solid v.$grisoscuro;
+        padding: 2rem;
+        .marcarerror{
+            border: 2px solid v.$rojo;
+            outline-color: v.$rosa;
+        }
+        .formulario{      
+            .contenedor-campos{
+
+                @include m.telefono{
+                    display: grid;
+                    grid-template-columns: 48% 49%;
+                    column-gap: 3rem;
+                }
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+/*
+.swal2-styled.swal2-confirm { //clases locales de la libreria sweetalert2
+    color: #37c461 !important;
+        color: #e90a0a !important;
+        background-color: #37c461 !important;;
+}*/
+
+.sweetbtn{  //clase de sweetalert2
+    font-size: 1.6rem !important;
+    color: v.$blanco !important;
+}
+
+.sweetbtnconfirm, .sweetbtncancel{  //clase de sweetalert2
+    font-size: 1.4rem !important;
+}
+
+.modalform{
+    label{
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: v.$grisoscuro;
+    }
+    select{
+        font-size: 1.5rem;
+        margin: .5rem 0 1rem 0;
+    }
+    .filter-consulta{
+        font-size: 1.5rem;
+        background-color: lighten(v.$azuloscuro, $amount: 10);
+        border: none;
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        &:hover{
+            cursor: pointer;
+            background-color: v.$azuloscuro;
+        }
+    }
+}

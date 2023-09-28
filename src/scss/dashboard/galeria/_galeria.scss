@@ -1,0 +1,38 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.galeria{
+    .form-subirfoto{
+        @include m.contenedor-sm;
+        .marcarerror{
+            border: 2px solid v.$rojo;
+            outline-color: v.$rosa;
+        }
+        margin-bottom: 1rem;
+    }
+    .contenido-fotos{
+        margin-top: 1rem;
+        @include m.grid(2, 1rem);
+        @include m.desktop{
+            @include m.grid(4, 1rem);
+        }
+        .foto{
+           border: 1px solid v.$grisoscuro;
+           p{
+               padding: .5rem 1rem 0 1rem;
+               color: v.$grisoscuro2;
+               font-size: 1.5rem;
+           }
+            img{
+                padding: 1rem;
+                height: 16rem;
+            }
+            .btn-vaciarimg{
+                display: flex;
+                justify-content: end;
+                padding: 0 1rem 1rem 0;
+                i{ color: v.$color4;}
+            }
+        }
+    }
+}

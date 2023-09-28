@@ -1,0 +1,9 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.editar-nosotros{
+    .formulario-legend{
+        color: v.$color4;
+        font-weight: 600;
+    }
+}

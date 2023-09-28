@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.admin-coordinadores{
+
+    .password{
+        form{
+            display: flex;
+            justify-content: center;
+            .campo-pass{
+                width: 15rem;
+            }
+            input[type="submit"]{
+                background-color: v.$azul2;
+                color: v.$blanco;
+                border: 1px solid v.$azul2;
+                padding: .5rem 1rem;
+                &:hover{
+                    cursor: pointer;
+                    background-color: darken(v.$azul2, 10);
+                    border: 1px solid  darken(v.$azul2, 10);
+                }
+            }
+        }
+    }
+    .acciones-coordinador{
+        .formulario .btn input{
+            padding: .7rem 1rem;
+        }
+    }
+}

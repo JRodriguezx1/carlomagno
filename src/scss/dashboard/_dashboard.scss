@@ -1,0 +1,238 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{
+    @include m.tablet{
+        display: flex;
+        height: 100vh;
+    }
+    .style-main{
+        h3{
+            text-align: center;
+            margin-bottom: 2rem;
+            color: v.$blanco;
+            background-color: v.$gris2;
+            padding: 1rem 0;
+        }
+    }
+    .btn{
+        a{
+            @include m.boton(v.$azul2, v.$blanco);
+            width: auto;
+        }
+        margin: 1rem 0; //nos e aplica --eliminar
+        &--eliminar{
+            a{ @include m.boton(v.$rosa, v.$blanco);}
+            p{ @include m.boton(v.$rosa, v.$blanco);}
+        }
+    }  
+}
+
+.sidebar{  //como su padre tiene una altura definida de 100vh, automaticamnete el sidebar toma esta altura
+    background-color: v.$color3;
+    
+    //display: none;  //me oculta el sidebar lateral en dipositivo movil
+    //@include m.tablet{  //cuando es igual o superior a tablet muesta el sidebar lateral
+        //display: block;
+    //}
+    .logo{
+        padding: 1rem;
+        margin-bottom: 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            color: v.$blanco;
+            text-align: center;
+        }
+        .menu{
+            img{   //iamgen de los 3 botoncitos
+                width: 3rem;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            &.mostrar{ //clase manipulada en js, cuando se presione btn menu lo oculta para mostrar la X cerrar
+                display: none;
+            }
+            @include m.tablet{
+                display: none;
+            }
+        }
+        .menux{ 
+            display: none;
+            padding-right: .8rem;
+            &.mostrar{ //clase de js, click en btn menu muestra la X de cerrar
+                display: block;
+            }
+            @include m.tablet{
+                display: none!important;
+            }
+            color: v.$blanco;
+            font-size: 3rem;
+            font-weight: 700;
+            &:hover{
+                cursor: pointer;
+            }   
+        }    
+    }
+    
+    h4{ // = main inicialmente esta oculto para dispositivos moviles
+        display: none;
+        color: v.$blanco;
+        margin-bottom: 1rem;
+        padding: .5rem 1rem;
+        @include m.tablet{
+            display: block;
+        }
+    } 
+    .sidebar-nav{
+        display: none;
+        &.mostrar{ //cuando se presione el boton menu en dispositivo movil se agrega esta clase desde app.js
+            display: block;
+        }
+        @include m.tablet{
+            display: block;
+        }
+        .acordion{
+            height: 0;
+            overflow: hidden;
+        }
+        .acordion-js{ //clase añadida con js o con php en headerdashboard.php
+            height: auto;
+            padding-left: 2rem;
+        }
+        .cambio{
+            position: relative;
+            &::after{
+                position: absolute;
+                color: v.$blanco;
+                font-size: 2rem;
+                display: inline-block; // para que se ponga el elemento al lado de otro se puede aplicar pading
+                font-style: normal;
+                text-rendering: auto; //propiedad que se aplica a vectores
+                -webkit-font-smoothing: antialiased;
+                font-family: "Font Awesome 6 brands";
+                content: '\2b';  
+                right: 15%;
+                top: 25%;
+                     
+            }
+        }
+        .cambiospeudoelement{
+            &::after{ 
+                font-size: 3rem;
+                top: 5%;
+                content: '-'; }
+        }
+
+        a{
+            display: block;
+            text-align: center;
+            color: v.$blanco;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            transition-property: background-color;
+            transition-duration: 300ms;
+            &:hover, &.activo{
+                background-color: darken(v.$secundario, 20);
+            }
+            @include m.tablet{
+                font-size: 1.4rem;
+                margin-bottom: .5rem;
+                text-align: left;
+            }
+            i{
+                margin-right: 1rem;
+                font-size: 2rem;
+                color: v.$color4;
+                fill: rgba(112,129,185,0.12);
+            }
+        }
+        .resaltar_menu{ //clase añadida con php en headerdashboard.php
+            background-color: darken(v.$secundario, 20);
+        }
+    }
+    .cerrar-sesion-mobile{
+        margin-top: 8rem;
+        text-align: center;
+        p{
+            color: v.$secundario;
+            margin-bottom: 1rem;
+            span{
+                color: v.$blanco;
+            }
+        }
+        .cerrar-sesion{
+            color: v.$blanco;
+            padding: 1rem 2rem;
+            display: inline-block;
+            &:hover{
+                background-color: darken(v.$secundario, 20);
+            }
+        }
+        @include m.tablet{
+            display: none;
+        }
+    }
+}
+
+.barra-contenido{
+    //flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include m.tablet{
+    overflow-y: auto;
+    }
+    .barra{
+        display: none;
+        background-color: v.$blanco;
+        padding: 1rem 2rem;
+        box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, .4);
+        @include m.tablet{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        p{
+            color: v.$grisoscuro2;
+            span{
+                color: v.$secundario;
+                font-weight: 700;
+            }
+        }
+        .acciones-barra{
+
+            .inicio{
+                i{
+                    color: v.$color3;
+                    &:hover{
+                        color: v.$color4;
+                    }
+                }
+                margin-right: 2rem;
+            }
+            .cerrar-sesion{  // etiqueta <a> de cerrar sesion    
+                padding: 1rem 2rem;
+                border: 1px solid v.$negro;
+                font-size: 1.5rem;
+                color: v.$grisoscuro2;  
+                &:hover{
+                    border: 1px solid v.$color4;
+                    background-color: v.$color4;
+                    color: v.$blanco;
+                } 
+            }
+        }
+    }
+
+    .contenido{
+        @include m.tablet{
+        overflow-y: scroll;
+        }
+        padding: .5rem;
+    }
+
+}

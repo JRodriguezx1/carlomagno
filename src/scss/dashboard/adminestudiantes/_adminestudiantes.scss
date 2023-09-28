@@ -1,0 +1,124 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.admin-estudiantes{ //=main
+    .acciones-registros{
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        @include m.desktop{
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .acciones-especiales{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .cambio-semestre{
+                color: v.$color4;
+                font-size: 2.2rem;
+            }
+        }
+        .filtro-programas{
+            #selectprogramas{
+                width: 19rem;
+                display: block;
+                color: v.$grisoscuro2;
+            }
+            .cont-consultar{ //div
+                text-align: center;
+                #filtros-personalizado{ //button
+                    margin-top: .4rem; 
+                    background-color: darken(v.$gris2, 0);
+                    border: 1px solid v.$gris2;
+                    //border: none;
+                    color: v.$grisclaro;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: darken(v.$gris2, 13);
+                        color: v.$blanco;
+                        border: 1px solid darken(v.$gris2, 13);
+                    }
+                }
+            }
+        }
+        .formulario-filtro{
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;     
+            .filtro{
+                input[type=radio]{display: none;}
+                label{
+                    background-color: v.$gris;
+                    padding: .4rem .5rem;
+                    font-size: 1.5rem;
+                    color: v.$grisoscuro2;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .plus_btn{  //clase agregada con js
+                    color: v.$blanco;
+                    background-color: v.$azul;
+                }
+            }
+            input[type=text]{ 
+              width: 16rem;
+              margin-left: .6rem;
+              @include m.telefono{
+                  width: 21rem;
+              }
+              @include m.desktop{
+                  margin-left: 1.5rem;
+              }
+            }
+            .lupa{
+                background-color: v.$azul;
+                color: v.$blanco;
+                padding: .4rem .7rem;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            input[type=submit]{display: none;}    
+        }
+        .excel{
+            background-color: v.$verde;
+            border: 2px solid v.$verde;
+            color: v.$blanco;
+            &:hover{
+                cursor: pointer;
+                border: 2px solid lighten(v.$verde, 5);
+                background-color: lighten(v.$verde, 5);
+            }
+        }
+    }
+
+} //fin .admin-estudiantes
+
+.paginacion{
+    text-align: center;
+    @include m.tablet{
+        text-align: end;
+    }
+    margin-top: 1rem;
+    &__enlace{
+        color: v.$grisoscuro2;
+        font-size: 1.6rem;
+        
+        &--texto{
+            
+        }
+        &--numero{
+            padding: .5rem;
+        }
+        &--actual{
+            padding: .5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: v.$secundario;
+        }
+    }
+}

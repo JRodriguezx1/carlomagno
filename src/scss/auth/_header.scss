@@ -1,0 +1,75 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+    .div-100vh{ //clase en headerauth.php y termina en footerauth.php
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        min-height: 91vh;
+        position: relative;
+        //background-color: rgb(55, 50, 51);
+        background-color: v.$blanco;
+       /* @include m.tablet{
+            height: 100vh;
+        }
+        display: flex;
+        flex-direction: column;  //el main y el footer se ordena en columna y el footer se aplica flex 1 para que tome el resto de espacio
+        */
+        .circulo{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            //top: 0;
+            //left: 0;
+            background-color: #fd9d3e;
+            clip-path: circle(600px at right 1050px);
+             @include m.telefono{
+                clip-path: circle(740px at right 1100px);
+            }
+            @include m.tablet{
+                clip-path: circle(600px at right 850px);
+            }
+        }  
+    }
+
+
+    .headerauth{
+        background-color: v.$negro;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        @include m.tablet{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        h1{
+            color: v.$blanco;
+            span{
+                color: #fd9d3e;
+            }
+        }
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            @include m.telefono{
+                justify-content: space-around;
+            }
+            @include m.tablet{
+                width: auto;
+                gap: 2rem;
+            }
+            a{
+                color: v.$blanco;
+                border-bottom: 1px solid v.$gris-oscuro;
+                padding-bottom: .5rem; 
+            }   
+        } 
+    }
+
+
+
+

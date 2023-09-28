@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.auth{ //main
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 9rem;
+
+    .formulario-contenido{
+        border: 1px solid v.$azuloscuro;
+        padding: 1rem;
+        @include m.contenedor-sm;
+        .role{
+            label{
+                color: v.$secundario;
+                font-weight: 600;
+            }
+        }
+        .auth-heading{
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+            color: v.$negro;
+        }
+        .auth-texto{
+            margin-bottom: 2rem;
+            color: v.$negro;
+            span{
+                color: v.$azul2;
+            }
+        }
+    } //fin formulario-contenido
+}
